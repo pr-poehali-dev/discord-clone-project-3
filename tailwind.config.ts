@@ -19,8 +19,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Inter', 'sans-serif'],
-				display: ['Golos Text', 'sans-serif'],
+				cyber: ['Orbitron', 'sans-serif'],
+				body: ['Roboto', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -66,23 +66,20 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				aurora: {
-					blue: '#6366f1',
-					purple: '#a855f7',
-					pink: '#ec4899',
-					sky: '#38bdf8',
-					mint: '#34d399',
+				neon: {
+					cyan: '#00f0ff',
+					pink: '#ff00ea',
+					purple: '#b400ff',
+					green: '#39ff14',
+					yellow: '#ffe600',
+					red: '#ff003c',
 				},
-				glass: {
-					light: 'rgba(255, 255, 255, 0.06)',
-					medium: 'rgba(255, 255, 255, 0.1)',
-					heavy: 'rgba(255, 255, 255, 0.15)',
-					border: 'rgba(255, 255, 255, 0.08)',
-				},
-				surface: {
-					DEFAULT: '#0c0c14',
-					raised: '#13131f',
-					overlay: '#1a1a2e',
+				cyber: {
+					dark: '#0a0a0f',
+					darker: '#06060a',
+					panel: '#12121a',
+					hover: '#1a1a2e',
+					border: '#1e1e3a',
 				}
 			},
 			borderRadius: {
@@ -99,45 +96,51 @@ export default {
 					from: { height: 'var(--radix-accordion-content-height)' },
 					to: { height: '0' }
 				},
+				'glitch-1': {
+					'0%, 100%': { clipPath: 'inset(0 0 0 0)', transform: 'translate(0)' },
+					'20%': { clipPath: 'inset(20% 0 60% 0)', transform: 'translate(-3px, 3px)' },
+					'40%': { clipPath: 'inset(40% 0 40% 0)', transform: 'translate(3px, -3px)' },
+					'60%': { clipPath: 'inset(60% 0 20% 0)', transform: 'translate(-2px, 2px)' },
+					'80%': { clipPath: 'inset(80% 0 5% 0)', transform: 'translate(2px, -2px)' },
+				},
+				'glitch-2': {
+					'0%, 100%': { clipPath: 'inset(0 0 0 0)', transform: 'translate(0)' },
+					'20%': { clipPath: 'inset(60% 0 10% 0)', transform: 'translate(3px, -3px)' },
+					'40%': { clipPath: 'inset(10% 0 70% 0)', transform: 'translate(-3px, 3px)' },
+					'60%': { clipPath: 'inset(50% 0 30% 0)', transform: 'translate(2px, -2px)' },
+					'80%': { clipPath: 'inset(30% 0 50% 0)', transform: 'translate(-2px, 2px)' },
+				},
+				'neon-pulse': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.5' },
+				},
+				'scan-line': {
+					'0%': { transform: 'translateY(-100%)' },
+					'100%': { transform: 'translateY(100vh)' },
+				},
 				'fade-in': {
-					'0%': { opacity: '0', transform: 'translateY(8px)' },
+					'0%': { opacity: '0', transform: 'translateY(10px)' },
 					'100%': { opacity: '1', transform: 'translateY(0)' },
 				},
 				'slide-in-right': {
-					'0%': { opacity: '0', transform: 'translateX(16px)' },
+					'0%': { opacity: '0', transform: 'translateX(20px)' },
 					'100%': { opacity: '1', transform: 'translateX(0)' },
-				},
-				'slide-in-left': {
-					'0%': { opacity: '0', transform: 'translateX(-16px)' },
-					'100%': { opacity: '1', transform: 'translateX(0)' },
-				},
-				'scale-in': {
-					'0%': { opacity: '0', transform: 'scale(0.95)' },
-					'100%': { opacity: '1', transform: 'scale(1)' },
-				},
-				'aurora-shift': {
-					'0%, 100%': { backgroundPosition: '0% 50%' },
-					'50%': { backgroundPosition: '100% 50%' },
 				},
 				'float': {
 					'0%, 100%': { transform: 'translateY(0)' },
-					'50%': { transform: 'translateY(-6px)' },
-				},
-				'pulse-soft': {
-					'0%, 100%': { opacity: '1' },
-					'50%': { opacity: '0.6' },
+					'50%': { transform: 'translateY(-5px)' },
 				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'fade-in': 'fade-in 0.4s ease-out',
+				'glitch-1': 'glitch-1 0.3s ease-in-out',
+				'glitch-2': 'glitch-2 0.3s ease-in-out 0.1s',
+				'neon-pulse': 'neon-pulse 2s ease-in-out infinite',
+				'scan-line': 'scan-line 8s linear infinite',
+				'fade-in': 'fade-in 0.3s ease-out',
 				'slide-in-right': 'slide-in-right 0.3s ease-out',
-				'slide-in-left': 'slide-in-left 0.3s ease-out',
-				'scale-in': 'scale-in 0.2s ease-out',
-				'aurora-shift': 'aurora-shift 8s ease-in-out infinite',
 				'float': 'float 3s ease-in-out infinite',
-				'pulse-soft': 'pulse-soft 2s ease-in-out infinite',
 			}
 		}
 	},
