@@ -4,44 +4,49 @@
 
 @layer base {
   :root {
-    --background: 235 25% 5%;
-    --foreground: 220 20% 92%;
+    --background: 240 20% 4%;
+    --foreground: 180 100% 95%;
 
-    --card: 235 20% 8%;
-    --card-foreground: 220 20% 92%;
+    --card: 240 15% 8%;
+    --card-foreground: 180 100% 95%;
 
-    --popover: 235 20% 10%;
-    --popover-foreground: 220 20% 92%;
+    --popover: 240 15% 8%;
+    --popover-foreground: 180 100% 95%;
 
-    --primary: 245 80% 67%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 185 100% 50%;
+    --primary-foreground: 240 20% 4%;
 
-    --secondary: 280 70% 60%;
+    --secondary: 300 100% 46%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 235 15% 14%;
-    --muted-foreground: 230 10% 48%;
+    --muted: 240 10% 14%;
+    --muted-foreground: 220 10% 55%;
 
-    --accent: 330 70% 60%;
+    --accent: 270 100% 50%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 72% 51%;
+    --destructive: 345 100% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 235 15% 14%;
-    --input: 235 15% 12%;
-    --ring: 245 80% 67%;
+    --border: 240 20% 18%;
+    --input: 240 15% 14%;
+    --ring: 185 100% 50%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    --sidebar-background: 235 20% 7%;
-    --sidebar-foreground: 220 20% 92%;
-    --sidebar-primary: 245 80% 67%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 235 15% 12%;
-    --sidebar-accent-foreground: 220 20% 92%;
-    --sidebar-border: 235 15% 12%;
-    --sidebar-ring: 245 80% 67%;
+    --sidebar-background: 240 15% 6%;
+    --sidebar-foreground: 180 100% 95%;
+    --sidebar-primary: 185 100% 50%;
+    --sidebar-primary-foreground: 240 20% 4%;
+    --sidebar-accent: 240 15% 12%;
+    --sidebar-accent-foreground: 180 100% 95%;
+    --sidebar-border: 240 20% 15%;
+    --sidebar-ring: 185 100% 50%;
+
+    --neon-cyan: #00f0ff;
+    --neon-pink: #ff00ea;
+    --neon-purple: #b400ff;
+    --neon-green: #39ff14;
   }
 }
 
@@ -51,98 +56,117 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground font-body;
     overflow: hidden;
   }
 }
 
 @layer utilities {
-  .glass {
-    background: rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+  .neon-text-cyan {
+    color: var(--neon-cyan);
+    text-shadow:
+      0 0 7px var(--neon-cyan),
+      0 0 20px var(--neon-cyan),
+      0 0 42px var(--neon-cyan);
   }
 
-  .glass-medium {
-    background: rgba(255, 255, 255, 0.07);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+  .neon-text-pink {
+    color: var(--neon-pink);
+    text-shadow:
+      0 0 7px var(--neon-pink),
+      0 0 20px var(--neon-pink),
+      0 0 42px var(--neon-pink);
   }
 
-  .glass-heavy {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(32px);
-    -webkit-backdrop-filter: blur(32px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+  .neon-text-purple {
+    color: var(--neon-purple);
+    text-shadow:
+      0 0 7px var(--neon-purple),
+      0 0 20px var(--neon-purple),
+      0 0 42px var(--neon-purple);
   }
 
-  .aurora-gradient {
-    background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899, #38bdf8);
-    background-size: 300% 300%;
-    animation: aurora-shift 8s ease-in-out infinite;
+  .neon-text-green {
+    color: var(--neon-green);
+    text-shadow:
+      0 0 7px var(--neon-green),
+      0 0 20px var(--neon-green);
   }
 
-  .aurora-text {
-    background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .aurora-border {
-    border-image: linear-gradient(135deg, #6366f1, #a855f7, #ec4899) 1;
-  }
-
-  .aurora-glow {
+  .neon-border-cyan {
+    border-color: var(--neon-cyan);
     box-shadow:
-      0 0 20px rgba(99, 102, 241, 0.15),
-      0 0 40px rgba(168, 85, 247, 0.1);
+      0 0 5px var(--neon-cyan),
+      inset 0 0 5px rgba(0, 240, 255, 0.1);
   }
 
-  .smooth-scrollbar::-webkit-scrollbar {
-    width: 5px;
-  }
-  .smooth-scrollbar::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  .smooth-scrollbar::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 10px;
-  }
-  .smooth-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.15);
+  .neon-border-pink {
+    border-color: var(--neon-pink);
+    box-shadow:
+      0 0 5px var(--neon-pink),
+      inset 0 0 5px rgba(255, 0, 234, 0.1);
   }
 
-  .hover-lift {
-    transition:
-      transform 0.2s ease,
-      box-shadow 0.2s ease;
-  }
-  .hover-lift:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  .neon-glow-cyan {
+    box-shadow:
+      0 0 10px var(--neon-cyan),
+      0 0 30px rgba(0, 240, 255, 0.3);
   }
 
-  .text-gradient-subtle {
+  .neon-glow-pink {
+    box-shadow:
+      0 0 10px var(--neon-pink),
+      0 0 30px rgba(255, 0, 234, 0.3);
+  }
+
+  .neon-glow-purple {
+    box-shadow:
+      0 0 10px var(--neon-purple),
+      0 0 30px rgba(180, 0, 255, 0.3);
+  }
+
+  .glitch-hover:hover {
+    animation: glitch-1 0.3s ease-in-out;
+  }
+
+  .cyber-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .cyber-scrollbar::-webkit-scrollbar-track {
+    background: hsl(240 15% 6%);
+  }
+  .cyber-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--neon-cyan);
+    border-radius: 3px;
+    box-shadow: 0 0 6px var(--neon-cyan);
+  }
+  .cyber-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--neon-pink);
+    box-shadow: 0 0 6px var(--neon-pink);
+  }
+
+  .scan-line::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
     background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.95),
-      rgba(255, 255, 255, 0.6)
+      90deg,
+      transparent,
+      var(--neon-cyan),
+      transparent
     );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    opacity: 0.15;
+    animation: scan-line 8s linear infinite;
+    pointer-events: none;
   }
-}
 
-@keyframes aurora-shift {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
+  .cyber-grid {
+    background-image:
+      linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
   }
 }
