@@ -1,40 +1,26 @@
 import { useState } from "react";
-import ConstellationNav from "@/components/nebula/ConstellationNav";
-import OrbitChannels from "@/components/nebula/OrbitChannels";
-import StarChat from "@/components/nebula/StarChat";
-import CosmosPanel from "@/components/nebula/CosmosPanel";
-
-const serverNames: Record<string, string> = {
-  home: "Главная",
-  "1": "Космопорт",
-  "2": "Звёздный Совет",
-  "3": "Туманность",
-  "4": "Орион",
-  "5": "Плеяды",
-  "6": "Андромеда",
-};
+import SideNav from "@/components/prism/SideNav";
+import ChatList from "@/components/prism/ChatList";
+import Conversation from "@/components/prism/Conversation";
+import InfoPanel from "@/components/prism/InfoPanel";
 
 const Index = () => {
-  const [activeServer, setActiveServer] = useState("1");
-  const [activeChannel, setActiveChannel] = useState("4");
+  const [activeSection, setActiveSection] = useState<"chats" | "contacts" | "invites">("chats");
+  const [activeChat, setActiveChat] = useState("1");
 
   return (
-    <div className="h-screen w-screen flex overflow-hidden bg-nebula-void relative">
+    <div className="h-screen w-screen flex overflow-hidden bg-prism-void relative">
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-        <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-star-blue/[0.04] rounded-full blur-[100px] animate-nebula-drift" />
-        <div className="absolute -bottom-40 -right-20 w-[600px] h-[600px] bg-star-purple/[0.04] rounded-full blur-[120px] animate-nebula-drift" style={{ animationDelay: "-7s" }} />
-        <div className="absolute top-1/3 left-1/2 w-[400px] h-[400px] bg-star-pink/[0.03] rounded-full blur-[100px] animate-nebula-drift" style={{ animationDelay: "-14s" }} />
+        <div className="absolute -top-40 left-[10%] w-[500px] h-[500px] bg-glow-mint/[0.02] rounded-full blur-[120px] animate-breathe" />
+        <div className="absolute -bottom-32 right-[15%] w-[400px] h-[400px] bg-glow-violet/[0.02] rounded-full blur-[100px] animate-breathe" style={{ animationDelay: "-3s" }} />
+        <div className="absolute top-[40%] left-[50%] w-[300px] h-[300px] bg-glow-coral/[0.015] rounded-full blur-[100px] animate-breathe" style={{ animationDelay: "-6s" }} />
       </div>
 
       <div className="relative z-10 flex w-full h-full">
-        <ConstellationNav activeServer={activeServer} onServerChange={setActiveServer} />
-        <OrbitChannels
-          activeChannel={activeChannel}
-          onChannelChange={setActiveChannel}
-          serverName={serverNames[activeServer] || "Сервер"}
-        />
-        <StarChat />
-        <CosmosPanel />
+        <SideNav activeSection={activeSection} onSectionChange={setActiveSection} />
+        <ChatList activeChat={activeChat} onChatChange={setActiveChat} />
+        <Conversation />
+        <InfoPanel />
       </div>
     </div>
   );
