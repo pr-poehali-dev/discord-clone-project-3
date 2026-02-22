@@ -19,9 +19,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				display: ['Space Grotesk', 'sans-serif'],
-				body: ['Inter', 'sans-serif'],
-				mono: ['JetBrains Mono', 'monospace'],
+				cyber: ['Orbitron', 'sans-serif'],
+				body: ['Roboto', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -67,26 +66,20 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				prism: {
-					void: '#060609',
-					base: '#0a0a10',
-					surface: '#111118',
-					raised: '#18181f',
-					elevated: '#1f1f28',
-					hover: '#262630',
-					border: '#2a2a36',
-					subtle: '#404050',
-					muted: '#6b6b80',
+				neon: {
+					cyan: '#00f0ff',
+					pink: '#ff00ea',
+					purple: '#b400ff',
+					green: '#39ff14',
+					yellow: '#ffe600',
+					red: '#ff003c',
 				},
-				glow: {
-					mint: '#34d399',
-					coral: '#fb7185',
-					sky: '#38bdf8',
-					violet: '#a78bfa',
-					amber: '#fbbf24',
-					rose: '#f472b6',
-					lime: '#a3e635',
-					ice: '#67e8f9',
+				cyber: {
+					dark: '#0a0a0f',
+					darker: '#06060a',
+					panel: '#12121a',
+					hover: '#1a1a2e',
+					border: '#1e1e3a',
 				}
 			},
 			borderRadius: {
@@ -103,42 +96,52 @@ export default {
 					from: { height: 'var(--radix-accordion-content-height)' },
 					to: { height: '0' }
 				},
-				'breathe': {
-					'0%, 100%': { opacity: '0.3', transform: 'scale(1)' },
-					'50%': { opacity: '0.6', transform: 'scale(1.05)' },
+				'glitch-1': {
+					'0%, 100%': { clipPath: 'inset(0 0 0 0)', transform: 'translate(0)' },
+					'20%': { clipPath: 'inset(20% 0 60% 0)', transform: 'translate(-3px, 3px)' },
+					'40%': { clipPath: 'inset(40% 0 40% 0)', transform: 'translate(3px, -3px)' },
+					'60%': { clipPath: 'inset(60% 0 20% 0)', transform: 'translate(-2px, 2px)' },
+					'80%': { clipPath: 'inset(80% 0 5% 0)', transform: 'translate(2px, -2px)' },
 				},
-				'slide-up': {
-					'0%': { opacity: '0', transform: 'translateY(6px)' },
-					'100%': { opacity: '1', transform: 'translateY(0)' },
+				'glitch-2': {
+					'0%, 100%': { clipPath: 'inset(0 0 0 0)', transform: 'translate(0)' },
+					'20%': { clipPath: 'inset(60% 0 10% 0)', transform: 'translate(3px, -3px)' },
+					'40%': { clipPath: 'inset(10% 0 70% 0)', transform: 'translate(-3px, 3px)' },
+					'60%': { clipPath: 'inset(50% 0 30% 0)', transform: 'translate(2px, -2px)' },
+					'80%': { clipPath: 'inset(30% 0 50% 0)', transform: 'translate(-2px, 2px)' },
+				},
+				'neon-pulse': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.5' },
+				},
+				'scan-line': {
+					'0%': { transform: 'translateY(-100%)' },
+					'100%': { transform: 'translateY(100vh)' },
 				},
 				'fade-in': {
-					'0%': { opacity: '0' },
-					'100%': { opacity: '1' },
+					'0%': { opacity: '0', transform: 'translateY(10px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' },
 				},
-				'soft-bounce': {
-					'0%': { transform: 'scale(0.95)' },
-					'50%': { transform: 'scale(1.02)' },
-					'100%': { transform: 'scale(1)' },
+				'slide-in-right': {
+					'0%': { opacity: '0', transform: 'translateX(20px)' },
+					'100%': { opacity: '1', transform: 'translateX(0)' },
 				},
-				'shimmer': {
-					'0%': { backgroundPosition: '-200% 0' },
-					'100%': { backgroundPosition: '200% 0' },
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-5px)' },
 				},
-				'typing-dot': {
-					'0%, 60%, 100%': { opacity: '0.3', transform: 'translateY(0)' },
-					'30%': { opacity: '1', transform: 'translateY(-3px)' },
-				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'breathe': 'breathe 8s ease-in-out infinite',
-				'slide-up': 'slide-up 0.25s ease-out',
-				'fade-in': 'fade-in 0.2s ease-out',
-				'soft-bounce': 'soft-bounce 0.3s ease-out',
-				'shimmer': 'shimmer 2s linear infinite',
-				'typing-dot': 'typing-dot 1.4s ease-in-out infinite',
-			},
+				'glitch-1': 'glitch-1 0.3s ease-in-out',
+				'glitch-2': 'glitch-2 0.3s ease-in-out 0.1s',
+				'neon-pulse': 'neon-pulse 2s ease-in-out infinite',
+				'scan-line': 'scan-line 8s linear infinite',
+				'fade-in': 'fade-in 0.3s ease-out',
+				'slide-in-right': 'slide-in-right 0.3s ease-out',
+				'float': 'float 3s ease-in-out infinite',
+			}
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
